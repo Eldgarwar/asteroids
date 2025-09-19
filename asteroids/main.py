@@ -53,7 +53,7 @@ def main():
                 return
             for s in Shot.instances:
                 if s.collide(a):
-                    a.kill()
+                    a.split()
                     s.kill()
                     break 
         # draw all drawable sprites

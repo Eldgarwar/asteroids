@@ -9,5 +9,5 @@ PLAYER_RADIUS = 20
 PLAYER_TURN_SPEED = 300  # degrees per second
 PLAYER_MOVE_SPEED = 200  # pixels per second
 BULLET_RADIUS = 5
-BULLET_SPEED = 500  # pixels per second
-SHOT_COOLDOWN = 0.3  # seconds
+BULLET_SPEED = 600  # pixels per second
+SHOT_COOLDOWN = 0.2  # seconds
