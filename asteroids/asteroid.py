@@ -1,5 +1,5 @@
 from constants import *
-import pygame
+import pygame # type: ignore
 from circleshape import CircleShape
 
 class Asteroid(CircleShape):

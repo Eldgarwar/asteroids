@@ -2,9 +2,10 @@
 # the open-source pygame library
 # throughout this file
 
-import pygame
+import pygame # type: ignore
 from constants import *
 from player import Player
+from shot import Shot
 from asteroidfield import AsteroidField
 from asteroid import Asteroid
 
@@ -21,6 +22,7 @@ def main():
     # set class-level containers before creating instances so sprites auto-add
     Player.containers = updateable, drawable
     Asteroid.containers = asteroid, updateable, drawable
+    Shot.containers = updateable, drawable
     AsteroidField.containers = updateable
 
     # create game objects
@@ -43,6 +45,17 @@ def main():
         # update all updateable sprites (includes asteroidfield which spawns asteroids)
         updateable.update(dt)
 
+        # check for collisions
+        for a in asteroid:
+            if player.collide(a):
+                print("Game over!")
+                pygame.quit()
+                return
+            for s in Shot.instances:
+                if s.collide(a):
+                    a.kill()
+                    s.kill()
+                    break 
         # draw all drawable sprites
         for sprite in drawable:
             sprite.draw(screen)
